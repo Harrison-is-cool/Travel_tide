@@ -49,8 +49,8 @@ Age buckets used if behavioral data is insufficient
 Age-Based condition for Segmentation 3. Analysis of Customer Segments by Perks
 
 ```sql
-WITH user_level AS (
-  SELECT  s.user_id, COUNT(session_id)
+1. WITH user_level AS (
+   SELECT  s.user_id, COUNT(session_id)
 	FROM sessions s
 	GROUP BY user_id
 	HAVING COUNT(session_id) > 7 ),
@@ -73,7 +73,7 @@ SELECT *
 FROM joined_tables
 
 
-SELECT
+2. SELECT
   u.user_id,
   u.gender,
   EXTRACT(YEAR FROM AGE(DATE '2023-07-28', u.birthdate)) AS age,
@@ -150,8 +150,8 @@ GROUP BY
 
 HAVING COUNT(DISTINCT s.session_id) > 7; 
 
-WITH user_personas AS (
-  SELECT
+3. WITH user_personas AS (
+   SELECT
     u.user_id,
     u.gender,
     EXTRACT(YEAR FROM AGE(DATE '2023-07-28', u.birthdate)) AS age,
