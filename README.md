@@ -1,4 +1,4 @@
- Travel_Tide: Traveler Segmentation Project
+### Travel_Tide: Traveler Segmentation Project
 
 Overview
 This project segments Travel_Tide’s user base into six distinct traveler personas by analyzing data from user, flight, hotel, and session records starting from January 2023. Our approach focuses on behavioral signals, supported by demographics when data is sparse.
@@ -44,9 +44,12 @@ Fallback classification:
 Age buckets used if behavioral data is insufficient
 
 
+### Traveler Insights and Segmentation using SQL
 
-### 1.Cleaned_Sql_Query 2. Traveler Persona(User) Segmentation: Behavior-Driven Insights and a Fall_back 
-Age-Based condition for Segmentation 3. Analysis of Customer Segments by Perks
+- 1. Cleaned_Sql_Query 
+- 2. Traveler Persona(User) Segmentation: Behavior-Driven Insights and a Fall_back 
+Age-Based condition for Segmentation
+- 3. Analysis of Customer Segments by Perks
 
 ```sql
 1. WITH user_level AS (
@@ -73,7 +76,7 @@ SELECT *
 FROM joined_tables
 
 
-2. SELECT
+ii. SELECT
   u.user_id,
   u.gender,
   EXTRACT(YEAR FROM AGE(DATE '2023-07-28', u.birthdate)) AS age,
@@ -150,7 +153,7 @@ GROUP BY
 
 HAVING COUNT(DISTINCT s.session_id) > 7; 
 
-3. WITH user_personas AS (
+iii. WITH user_personas AS (
    SELECT
     u.user_id,
     u.gender,
